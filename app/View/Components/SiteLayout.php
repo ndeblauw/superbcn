@@ -12,7 +12,7 @@ class SiteLayout extends Component
 
     public function __construct(?string $title = null)
     {
-        $this->title = $title;
+        $this->title = ucfirst($title);
     }
 
     /**
