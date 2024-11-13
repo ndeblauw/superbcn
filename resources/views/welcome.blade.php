@@ -1,4 +1,4 @@
-<x-site-layout>
+<x-site-layout title="Super BCN blog">
 
     Hello class
 
