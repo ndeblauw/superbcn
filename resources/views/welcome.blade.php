@@ -6,7 +6,7 @@
             <div>
                 {{ $article->published_at->format('M d') }}
                 |
-                {{$article->author->name}} ({{$article->author->email}})
+                {{$article->author?->name ?? 'Unknown'}}
             </div>
             <p class="text-sm">{{ $article->summary(250) }}</p>
 
