@@ -4,11 +4,11 @@
         <div class="mt-4">
             <h2 class="font-bold text-lg">{{$article->title}}</h2>
             <div>
-                {{ \Carbon\Carbon::parse($article->published_at)->toDateString() }}
+                {{ $article->published_at->format('M d') }}
                 |
                 {{$article->author_name}}
             </div>
-            <p class="text-sm">{{$article->content}}</p>
+            <p class="text-sm">{{ $article->summary(100) }}</p>
         </div>
     @endforeach
 

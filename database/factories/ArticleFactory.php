@@ -18,7 +18,7 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => fake()->sentence,
-            'content' => fake()->realText(500),
+            'content' => fake()->realText(1500),
             'author_name' => fake()->name,
             'published_at' => fake()->optional()->dateTime,
         ];
