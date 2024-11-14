@@ -8,7 +8,13 @@
                 |
                 {{$article->author->name}} ({{$article->author->email}})
             </div>
-            <p class="text-sm">{{ $article->summary(100) }}</p>
+            <p class="text-sm">{{ $article->summary(250) }}</p>
+
+            <ul class="list-disc pl-4">
+                @foreach($article->comments->take(3) as $comment)
+                    <li>{{$comment->content}}</li>
+                @endforeach
+            </ul>
         </div>
     @endforeach
 
