@@ -3,12 +3,13 @@
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="shrink-0 text-blue-300">
-                    <a href="/">SuperBCN</a>
+                    <a href="{{route('welcome')}}">SuperBCN</a>
+
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="/" class="rounded-md bg-blue-600 px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
-                        <a href="/articles" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Articles</a>
+                        <a href="{{route('welcome')}}" class="rounded-md bg-blue-600 px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
+                        <a href="{{route('articles.index')}}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Articles</a>
                     </div>
                 </div>
             </div>

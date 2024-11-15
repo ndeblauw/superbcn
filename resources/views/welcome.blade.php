@@ -2,7 +2,7 @@
 
     <div class="grid grid-cols-2 gap-x-8">
     @foreach($articles as $article)
-        <a href="/articles/{{$article->id}}" class="mt-4">
+        <a href="{{route('articles.show',$article->id )}}" class="mt-4">
             <h2 class="font-bold text-lg">{{$article->title}}</h2>
             <div>
                 {{ $article->published_at->format('Y-M-d') }}
