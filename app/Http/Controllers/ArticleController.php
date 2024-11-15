@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function index()
+    {
+        $articles = Article::whereNotNull('published_at')->orderByDesc('published_at')->get();
+
+        return view('articles.index')->with('articles', $articles);
+
+    }
+
     public function show(int $id)
     {
         $article = Article::published()->where('id', $id)->first();
