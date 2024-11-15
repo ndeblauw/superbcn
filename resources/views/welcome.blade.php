@@ -1,7 +1,8 @@
 <x-site-layout title="super BCN blog">
 
+    <div class="grid grid-cols-2 gap-x-8">
     @foreach($articles as $article)
-        <div class="mt-4">
+        <a href="/articles/{{$article->id}}" class="mt-4">
             <h2 class="font-bold text-lg">{{$article->title}}</h2>
             <div>
                 {{ $article->published_at->format('Y-M-d') }}
@@ -22,8 +23,9 @@
                     <li>{{$comment->content}}</li>
                 @endforeach
             </ul>
-        </div>
+        </a>
     @endforeach
+    </div>
 
 
     hello class
