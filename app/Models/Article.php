@@ -31,6 +31,12 @@ class Article extends Model
         return $this->hasMany(Comment::class, 'article_id');
     }
 
+    // Model scopes --------
+    public function scopePublished($query)
+    {
+        return $query->whereNotNull('published_at')->where('published_at', '<=', now());
+    }
+
 
     // Model methods --------
     public function summary(int $lenght = 50): string

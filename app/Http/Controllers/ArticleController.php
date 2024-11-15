@@ -9,7 +9,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::whereNotNull('published_at')->orderByDesc('published_at')->get();
+        $articles = Article::published()->orderByDesc('published_at')->get();
 
         return view('articles.index')->with('articles', $articles);
 
