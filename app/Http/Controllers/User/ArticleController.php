@@ -39,6 +39,8 @@ class ArticleController extends Controller
             'author_id' => 1,
         ]);
 
+        session()->flash('success', 'Article [<span class="font-bold">'.$article->title.'</span>] created successfully');
+
         return redirect()->route('user.articles.index');
     }
 
@@ -80,6 +82,8 @@ class ArticleController extends Controller
             'content' => $request->content,
         ]);
 
+        session()->flash('success', 'Article [<span class="font-bold">'.$article->title.'</span>] updated successfully');
+
         return redirect()->route('user.articles.index');
     }
 
@@ -91,6 +95,8 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
 
         $article->delete();
+
+        session()->flash('success', 'Article [<span class="font-bold">'.$article->title.'</span>] deleted successfully');
 
         return redirect()->route('user.articles.index');
     }
