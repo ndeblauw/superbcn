@@ -8,6 +8,20 @@ Route::get('/', \App\Http\Controllers\WelcomeController::class)->name('welcome')
 Route::get('articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles.index');
 Route::get('articles/{id}',[\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 
+Route::name('user.')->group(function() {
+    Route::resource('user/articles', App\Http\Controllers\User\ArticleController::class);
+});
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
