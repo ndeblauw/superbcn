@@ -20,6 +20,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        return view('user.articles.create');
     }
 
     /**
@@ -27,6 +28,13 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $article = Article::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'author_id' => 1,
+        ]);
+
+        return redirect()->route('user.articles.index');
     }
 
     /**

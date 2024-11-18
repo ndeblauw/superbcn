@@ -1,5 +1,7 @@
 <x-site-layout>
 
+    <a href="{{route('user.articles.create')}}">create article</a>
+
     <ul class="list-disc pl-4">
         @foreach($articles as $article)
             <li>
