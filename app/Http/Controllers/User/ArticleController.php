@@ -28,6 +28,11 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => ['required', 'string', 'min:5', 'max:255'],
+            'content' => ['required', 'string'],
+        ]);
+
         $article = Article::create([
             'title' => $request->title,
             'content' => $request->content,
@@ -63,6 +68,11 @@ class ArticleController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'title' => ['required', 'string', 'min:5', 'max:255'],
+            'content' => ['required', 'string'],
+        ]);
+
         $article = Article::find($id);
 
         $article->update([
