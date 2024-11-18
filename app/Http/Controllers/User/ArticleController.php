@@ -44,6 +44,10 @@ class ArticleController extends Controller
      */
     public function edit(string $id)
     {
+        $article = Article::find($id);
+
+        return view('user.articles.edit', compact('article'));
+        //
     }
 
     /**
@@ -51,6 +55,14 @@ class ArticleController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $article = Article::find($id);
+
+        $article->update([
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('user.articles.index');
     }
 
     /**

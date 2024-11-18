@@ -4,6 +4,7 @@
         @foreach($articles as $article)
             <li>
                 {{$article->title}}
+                <a href="{{route('user.articles.edit', $article)}}">edit</a>
             </li>
         @endforeach
     </ul>
