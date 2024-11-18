@@ -3,11 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// Public visible routes
 Route::get('/', \App\Http\Controllers\WelcomeController::class)->name('welcome');
 
 Route::get('articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles.index');
 Route::get('articles/{id}',[\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 
+// Authenticated routes
 Route::name('user.')->group(function() {
     Route::resource('user/articles', App\Http\Controllers\User\ArticleController::class);
 });
