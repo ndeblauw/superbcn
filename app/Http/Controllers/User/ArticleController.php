@@ -10,6 +10,9 @@ class ArticleController extends Controller
 {
     public function index()
     {
+        $articles = Article::all();
+
+        return view('user.articles.index', compact('articles'));
     }
 
     /**
@@ -31,6 +34,9 @@ class ArticleController extends Controller
      */
     public function show(string $id)
     {
+        $article = Article::findOrFail($id);
+
+        return view('articles.show', compact('article'));
     }
 
     /**
