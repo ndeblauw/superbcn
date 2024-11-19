@@ -10,7 +10,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::where('author_id', auth()->user()->id)->get();
 
         return view('user.articles.index', compact('articles'));
     }
@@ -51,6 +51,8 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
 
+        $this->isAuthorized($article);
+
         return view('articles.show', compact('article'));
     }
 
@@ -60,6 +62,8 @@ class ArticleController extends Controller
     public function edit(string $id)
     {
         $article = Article::find($id);
+
+        $this->isAuthorized($article);
 
         return view('user.articles.edit', compact('article'));
         //
@@ -76,6 +80,8 @@ class ArticleController extends Controller
         ]);
 
         $article = Article::find($id);
+
+        $this->isAuthorized($article);
 
         $article->update([
             'title' => $request->title,
@@ -94,10 +100,20 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
 
+        $this->isAuthorized($article);
+
         $article->delete();
 
         session()->flash('success', 'Article [<span class="font-bold">'.$article->title.'</span>] deleted successfully');
 
         return redirect()->route('user.articles.index');
+    }
+
+    private function isAuthorized(Article $article): void
+    {
+        // check if user is allowed to edit this article
+        if($article->author_id != auth()->user()->id) {
+            abort(401);
+        }
     }
 }
