@@ -1,6 +1,6 @@
 <x-site-layout title="Create new article">
 
-    <form action="{{route('user.articles.store')}}" method="post">
+    <form action="{{route('user.articles.store')}}" method="post" class="w-2/3 border border-gray-300 p-4">
         @csrf
 
         <x-form-text name="title" label="Title" placeholder="Please make it catchy" />
