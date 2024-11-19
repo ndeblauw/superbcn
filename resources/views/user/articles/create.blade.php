@@ -4,15 +4,8 @@
         @csrf
 
         <x-form-text name="title" label="Title" placeholder="Please make it catchy" />
-
-        <br/><br/>
-
-        <label for="content">Content</label><br/>
-        <textarea name="content">{{old('content')}}</textarea>
-        @error('content')<div class="text-red-500">{{$message}}</div> @enderror
-
-        <br/><br/>
-
+        <x-form-textarea name="content" label="Your great post" placeholder="Make sure to have more than 1 paragraph"/>
+        
         <div>
             <a href="{{route('user.articles.index')}}">Undo</a>
             <button type="submit">Create article</button>
