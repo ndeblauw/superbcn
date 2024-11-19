@@ -77,6 +77,7 @@ class ArticleController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'min:5', 'max:255'],
             'content' => ['required', 'string'],
+            'author_id' => ['required', 'numeric']
         ]);
 
         $article = Article::find($id);
@@ -86,6 +87,7 @@ class ArticleController extends Controller
         $article->update([
             'title' => $request->title,
             'content' => $request->content,
+            'author_id' => $request->author_id,
         ]);
 
         session()->flash('success', 'Article [<span class="font-bold">'.$article->title.'</span>] updated successfully');
