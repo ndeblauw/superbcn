@@ -3,9 +3,7 @@
     <form action="{{route('user.articles.store')}}" method="post">
         @csrf
 
-        <label for="title">Title</label><br/>
-        <input name="title" value="{{old('title')}}">
-        @error('title')<div class="text-red-500">{{$message}}</div> @enderror
+        <x-form-text name="title" label="Title" placeholder="Please make it catchy" />
 
         <br/><br/>
 
