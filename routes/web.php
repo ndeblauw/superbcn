@@ -10,7 +10,8 @@ Route::get('articles', [\App\Http\Controllers\ArticleController::class, 'index']
 Route::get('articles/{id}',[\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 
 // Authenticated routes
-Route::name('user.')->group(function() {
+require __DIR__.'/auth.php';
+Route::name('user.')->middleware(['auth', 'verified'])->group(function() {
     Route::resource('user/articles', App\Http\Controllers\User\ArticleController::class);
 });
 
@@ -35,4 +36,3 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
