@@ -19,7 +19,7 @@ class ArticleFactory extends Factory
         return [
             'title' => fake()->sentence,
             'content' => fake()->realText(1500),
-            'author_id' => fake()->numberBetween(1,10),
+            'author_id' => fake()->numberBetween(1, 10),
             'published_at' => fake()->optional()->dateTime,
         ];
     }

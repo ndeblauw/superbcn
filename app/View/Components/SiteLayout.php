@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class SiteLayout extends Component
 {
     public $title;
+
     public $valentine;
 
     public function __construct(?string $title = null)

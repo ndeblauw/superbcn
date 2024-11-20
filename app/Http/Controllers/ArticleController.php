@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -19,7 +18,7 @@ class ArticleController extends Controller
     {
         $article = Article::published()->where('id', $id)->first();
 
-        if($article === null){
+        if ($article === null) {
             abort(404);
         }
 

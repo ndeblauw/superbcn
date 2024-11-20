@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\User;
-use App\Models\Article;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -23,13 +23,12 @@ class DatabaseSeeder extends Seeder
 
         Category::factory(5)->create();
 
-        foreach(Article::take(6)->get() as $article) {
-            $list_of_categories = Category::inRandomOrder()->take(random_int(0,4))->get();
+        foreach (Article::take(6)->get() as $article) {
+            $list_of_categories = Category::inRandomOrder()->take(random_int(0, 4))->get();
             $article->categories()->attach($list_of_categories);
         }
 
         Category::factory(1)->create();
-
 
     }
 }

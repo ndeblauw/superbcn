@@ -12,6 +12,7 @@ class Article extends Model
     use HasFactory;
 
     protected $guarded = [];
+
     protected $casts = [
         'published_at' => 'datetime',
     ];
@@ -37,7 +38,6 @@ class Article extends Model
     {
         return $query->whereNotNull('published_at')->where('published_at', '<=', now());
     }
-
 
     // Model methods --------
     public function summary(int $lenght = 50): string

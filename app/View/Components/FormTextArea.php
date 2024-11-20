@@ -13,7 +13,7 @@ class FormTextArea extends Component
         public string $label,
         public ?string $value = null,
         public ?string $placeholder = null,
-    ) { }
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

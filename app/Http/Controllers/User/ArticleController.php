@@ -77,7 +77,7 @@ class ArticleController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'min:5', 'max:255'],
             'content' => ['required', 'string'],
-            'author_id' => ['required', 'numeric']
+            'author_id' => ['required', 'numeric'],
         ]);
 
         $article = Article::find($id);
@@ -114,7 +114,7 @@ class ArticleController extends Controller
     private function isAuthorized(Article $article): void
     {
         // check if user is allowed to edit this article
-        if($article->author_id != auth()->user()->id) {
+        if ($article->author_id != auth()->user()->id) {
             abort(401);
         }
     }
