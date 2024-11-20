@@ -11,9 +11,9 @@ class ArticleController extends Controller
     public function index()
     {
         if(auth()->user()->is_admin){
-            $articles = Article::get();
+            $articles = Article::paginate(10);
         } else {
-            $articles = Article::where('author_id', auth()->user()->id)->get();
+            $articles = Article::where('author_id', auth()->user()->id)->paginate(10);
         }
 
         return view('user.articles.index', compact('articles'));

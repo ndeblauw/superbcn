@@ -12,6 +12,10 @@
         </div>
     @endif
 
+    <div>
+        {{$articles->links() }}
+    </div>
+
     <table class="table-auto w-full border border-gray-300">
         <thead>
             <tr class="bg-gray-300 ">
