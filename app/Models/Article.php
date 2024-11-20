@@ -44,4 +44,13 @@ class Article extends Model
     {
         return Str::of($this->content)->limit($lenght);
     }
+
+    public function authorized(User $user): void
+    {
+        if ($this->author_id == $user->id) {
+            return;
+        }
+
+        abort(401);
+    }
 }
