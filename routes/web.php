@@ -13,6 +13,7 @@ Route::get('articles/{id}', [\App\Http\Controllers\ArticleController::class, 'sh
 require __DIR__.'/auth.php';
 Route::name('user.')->middleware(['auth', 'verified'])->group(function () {
     Route::resource('user/articles', App\Http\Controllers\User\ArticleController::class);
+    Route::get('user/articles/{id}/publish', \App\Http\Controllers\User\ArticlePublishController::class)->name('articles.publish');
 });
 
 Route::get('/dashboard', function () {
