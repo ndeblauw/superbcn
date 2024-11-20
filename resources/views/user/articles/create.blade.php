@@ -5,7 +5,8 @@
 
         <x-form-text name="title" label="Title" placeholder="Please make it catchy" />
         <x-form-textarea name="content" label="Your great post" placeholder="Make sure to have more than 1 paragraph"/>
-        
+        <x-form-checkboxes name="categories" label="Categories" :options="\App\Models\Category::orderBy('title')->pluck('title', 'id')->toArray()" />
+
         <div>
             <a href="{{route('user.articles.index')}}">Undo</a>
             <button type="submit">Create article</button>

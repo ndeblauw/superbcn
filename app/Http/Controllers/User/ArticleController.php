@@ -35,6 +35,7 @@ class ArticleController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'min:5', 'max:255'],
             'content' => ['required', 'string'],
+            'categories' => ['nullable', 'array'],
         ]);
 
         $article = Article::create([
@@ -42,6 +43,8 @@ class ArticleController extends Controller
             'content' => $request->content,
             'author_id' => 1,
         ]);
+
+        $article->categories()->sync($request->categories);
 
         session()->flash('success', 'Article [<span class="font-bold">'.$article->title.'</span>] created successfully');
 
@@ -82,6 +85,7 @@ class ArticleController extends Controller
             'title' => ['required', 'string', 'min:5', 'max:255'],
             'content' => ['required', 'string'],
             'author_id' => ['required', 'numeric'],
+            'categories' => ['nullable', 'array'],
         ]);
 
         $article = Article::find($id);
@@ -93,6 +97,8 @@ class ArticleController extends Controller
             'content' => $request->content,
             'author_id' => $request->author_id,
         ]);
+
+        $article->categories()->sync($request->categories);
 
         session()->flash('success', 'Article [<span class="font-bold">'.$article->title.'</span>] updated successfully');
 
