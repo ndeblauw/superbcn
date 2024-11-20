@@ -47,6 +47,10 @@ class Article extends Model
 
     public function authorized(User $user): void
     {
+        if($user->is_admin) {
+            return;
+        }
+
         if ($this->author_id == $user->id) {
             return;
         }

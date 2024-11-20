@@ -10,7 +10,11 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::where('author_id', auth()->user()->id)->get();
+        if(auth()->user()->is_admin){
+            $articles = Article::get();
+        } else {
+            $articles = Article::where('author_id', auth()->user()->id)->get();
+        }
 
         return view('user.articles.index', compact('articles'));
     }
