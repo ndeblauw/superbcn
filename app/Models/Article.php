@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Article extends Model implements HasMedia
 {
@@ -58,5 +60,14 @@ class Article extends Model implements HasMedia
         }
 
         abort(401);
+    }
+
+    // Media conversions
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this
+            ->addMediaConversion('preview')
+            ->fit(Fit::Contain, 300, 300)
+            ->nonQueued();
     }
 }
