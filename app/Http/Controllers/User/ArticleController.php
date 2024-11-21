@@ -86,6 +86,7 @@ class ArticleController extends Controller
             'content' => ['required', 'string'],
             'author_id' => ['required', 'numeric'],
             'categories' => ['nullable', 'array'],
+            'image' => ['nullable', 'file', 'image', 'max:4096'],
         ]);
 
         $article = Article::find($id);
@@ -99,6 +100,11 @@ class ArticleController extends Controller
         ]);
 
         $article->categories()->sync($request->categories);
+
+        if($request->has('image')) {
+            $article->media->first()->delete();
+            $article->addMediaFromRequest('image')->toMediaCollection('images');
+        }
 
         session()->flash('success', 'Article [<span class="font-bold">'.$article->title.'</span>] updated successfully');
 
