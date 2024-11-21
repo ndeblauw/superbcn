@@ -60,7 +60,7 @@ class ArticleController extends Controller
 
         $article->authorized(auth()->user());
 
-        return view('articles.show', compact('article'));
+        return view('user.articles.show', compact('article'));
     }
 
     /**
