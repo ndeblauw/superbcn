@@ -102,7 +102,7 @@ class ArticleController extends Controller
         $article->categories()->sync($request->categories);
 
         if($request->has('image')) {
-            $article->media->first()->delete();
+            $article->media->first()?->delete();
             $article->addMediaFromRequest('image')->toMediaCollection('images');
         }
 
