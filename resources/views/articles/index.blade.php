@@ -1,7 +1,7 @@
 <x-site-layout title="Articles list">
 
     @foreach($articles as $article)
-        <a href="{{route('articles.show, $article->id)}}" class="mt-4">
+        <a href="{{route('articles.show', $article->id)}}" class="mt-4">
             <h2 class="font-bold text-lg">{{$article->title}}</h2>
             <div>
                 {{ $article->published_at->format('Y-M-d') }}
