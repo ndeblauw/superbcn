@@ -4,7 +4,11 @@
 
     <div>@foreach($article->categories as $category) {{$category->title}} @endforeach</div>
 
-    <img src="{{$article->media->first()->getUrl('preview')}}">
+    @if($article->media->first() !== null)
+        <img src="{{$article->media->first()->getUrl('preview')}}">
+    @else
+        <img src="{{asset('images/default.webp')}}"/>
+    @endif
 
     {{$article->content}}
 </x-site-layout>
