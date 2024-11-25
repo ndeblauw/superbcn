@@ -5,7 +5,7 @@
         @csrf
 
         <x-form-text name="title" label="Title" value="{{$article->title}}"/>
-        <x-form-textarea name="content" label="Your great post" value="{{$article->content}}" placeholder="Make sure to have more than 1 paragraph"/>
+        <x-form-textarea name="content" :rte="true" label="Your great post" value="{!! $article->content !!}" placeholder="Make sure to have more than 1 paragraph"/>
         <x-form-select name="author_id" label="Author" value="{{$article->author_id}}" :options="\App\Models\User::pluck('name', 'id')->toArray()" />
         <x-form-checkboxes name="categories" label="Categories" :options="\App\Models\Category::orderBy('title')->pluck('title', 'id')->toArray()" :values="$article->categories->pluck('id')->toArray()" />
 

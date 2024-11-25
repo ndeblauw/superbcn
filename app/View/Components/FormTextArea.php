@@ -13,6 +13,7 @@ class FormTextArea extends Component
         public string $label,
         public ?string $value = null,
         public ?string $placeholder = null,
+        public bool $rte = false,
     ) {}
 
     /**
