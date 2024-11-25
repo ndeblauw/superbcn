@@ -9,6 +9,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::published()->orderByDesc('published_at')->get();
+        $articles->load('author', 'categories', 'comments');
 
         return view('articles.index')->with('articles', $articles);
 
