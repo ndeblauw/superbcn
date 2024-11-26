@@ -79,6 +79,7 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="md:hidden" id="mobile-menu" x-show="mobile_menu_open" @click.away="mobile_menu_open=false">
         <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
             @foreach($menu as $title => $link)
                 <a href="{{$link}}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">{{$title}}</a>

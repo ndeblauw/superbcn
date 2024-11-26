@@ -10,7 +10,6 @@ class WelcomeController extends Controller
     {
         $articles = Article::published()->take(2)->get()->sortByDesc('published_at');
 
-        return view('welcome')->with('articles', $articles);
         //return view('welcome', compact('articles'));
     }
 }
