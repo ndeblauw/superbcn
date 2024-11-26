@@ -62,6 +62,22 @@ class Article extends Model implements HasMedia
         abort(401);
     }
 
+    // Custom methods --------
+    public function getContent(): string
+    {
+        $replace_list = [
+            '<p>' => '<p class="mt-4">',
+            '<ul>' => '<ul class="list-disc list-inside">',
+        ];
+
+        $content = $this->content;
+        foreach($replace_list as $from => $to) {
+            $content = str_replace($from, $to, $content);
+        }
+
+        return $content;
+    }
+
     // Media conversions
     public function registerMediaConversions(?Media $media = null): void
     {

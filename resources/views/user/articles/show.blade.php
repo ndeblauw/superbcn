@@ -10,5 +10,5 @@
         <img src="{{asset('images/default.webp')}}"/>
     @endif
 
-    {!! $article->content !!}
+    {!! $article->getContent() !!}
 </x-site-layout>

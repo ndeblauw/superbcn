@@ -2,7 +2,7 @@
 
     <div class="max-w-4xl mx-auto">
         <p class="text-xl">
-            {{$article->content}}
+            {!! $article->getContent() !!}
         </p>
 
     </div>
