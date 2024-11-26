@@ -17,6 +17,8 @@ class ArticlePublishController extends Controller
             'published_at' => now(),
         ]);
 
+        cache()->forget('welcome_articles');
+
         return redirect()->back();
     }
 }
