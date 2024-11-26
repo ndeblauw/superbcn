@@ -1,5 +1,9 @@
 <x-site-layout title="super BCN blog">
 
+    <div class="p-4 bg-pink-500 text-white">
+        {{$welcome}}
+    </div>
+
     <div class="grid grid-cols-2 gap-x-8">
     @foreach($articles as $article)
         <a href="{{route('articles.show',$article->id )}}" class="mt-4">
