@@ -25,16 +25,16 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
 
         Article::factory(100)->create();
-        Comment::factory(20)->create();
+        Comment::factory(200)->create();
 
-        Category::factory(5)->create();
+        Category::factory(10)->create();
 
-        foreach (Article::take(6)->get() as $article) {
+        foreach (Article::take(100)->get() as $article) {
             $list_of_categories = Category::inRandomOrder()->take(random_int(0, 4))->get();
             $article->categories()->attach($list_of_categories);
         }
 
-        Category::factory(1)->create();
+        Category::factory(1)->create(); // Category without articles
 
     }
 }
