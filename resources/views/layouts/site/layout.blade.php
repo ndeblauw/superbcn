@@ -51,4 +51,4 @@ This example requires updating your template:
 
 
 </body>
-</>
+</html>
