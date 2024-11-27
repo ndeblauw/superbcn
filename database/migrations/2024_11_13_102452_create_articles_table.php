@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('author_id');
             $table->timestamp('published_at')->nullable();
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

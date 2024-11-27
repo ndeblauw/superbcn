@@ -21,6 +21,7 @@ class ArticleFactory extends Factory
             'content' => fake()->realText(1500),
             'author_id' => fake()->numberBetween(1, 10),
             'published_at' => fake()->optional()->dateTime,
+            'deleted_at' => fake()->optional()->dateTime,
         ];
     }
 }
