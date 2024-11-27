@@ -42,6 +42,9 @@ This example requires updating your template:
         </div>
     </main>
 
+
+    <x-most-popular/>
+
     <x-site-layout-footer />
 </div>
 
