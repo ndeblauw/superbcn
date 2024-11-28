@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Notifications\InformAuthorOnArticleRead;
 
 class ArticleController extends Controller
 {
@@ -19,6 +20,7 @@ class ArticleController extends Controller
     {
         $article = Article::published()->findOrFail($id);
         
+        $article->author->notify( new InformAuthorOnArticleRead(now(), $article->id));
 
         return view('articles.show')->with('article', $article);
     }
