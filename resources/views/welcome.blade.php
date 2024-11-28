@@ -1,7 +1,7 @@
 <x-site-layout title="super BCN blog">
 
     <div class="p-4 bg-pink-500 text-white">
-        {{$welcome}}
+        {{$welcome}} - 'Password' in your language is '{{__('Password')}}'
     </div>
 
     <div class="grid grid-cols-2 gap-x-8">
@@ -31,6 +31,4 @@
     @endforeach
     </div>
 
-
-    hello class
 </x-site-layout>
