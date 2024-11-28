@@ -19,12 +19,7 @@
 
 </head>
 <body class="font-sans antialiased h-full">
-<!--
-This example requires updating your template:
 
-```
-```
--->
 <div class="min-h-full">
 
     <x-site-layout-menu />
