@@ -9,6 +9,8 @@ Route::get('/', \App\Http\Controllers\WelcomeController::class)->name('welcome')
 Route::get('articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles.index');
 Route::get('articles/{id}', [\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 
+Route::get('set-locale/{locale}', \App\Http\Controllers\SetLocaleController::class)->name('set-locale');
+
 // Authenticated routes
 require __DIR__.'/auth.php';
 Route::name('user.')->middleware(['auth', 'verified'])->group(function () {
