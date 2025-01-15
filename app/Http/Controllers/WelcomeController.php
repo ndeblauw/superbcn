@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\User;
 
 class WelcomeController extends Controller
 {
     public function __invoke()
     {
-        $user = User::where('email', 'nico@deblauwe.be')->first();
-        $user->fakefunction($user);
-
         $welcome_message = cache()->remember('user_welcome_'.auth()->id(), 30, function() {
             return "Welcome ".(auth()->user()?->name ?? 'unknown');
         });
