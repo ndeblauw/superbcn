@@ -3,7 +3,7 @@
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="shrink-0 text-blue-300">
-                    <a href="{{route('welcome')}}">SuperBCN</a>
+                    <a href="{{route('welcome')}}"> {{config('app.name')}}</a>
 
                 </div>
                 <div class="hidden md:block">
