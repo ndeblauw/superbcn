@@ -1,5 +1,6 @@
 <x-site-layout title="super BCN blog">
 
+    <x-quote/>
 
     <div class="grid grid-cols-2 gap-x-8">
     @foreach($articles as $article)
