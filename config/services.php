@@ -37,4 +37,9 @@ return [
 
     'api-ninjas' => env('API_NINJAS_KEY', ''),
 
+    'openweather' => [
+        'endpoint' => 'https://api.openweathermap.org/data/2.5/weather',
+        'key' => env('OPENWEATHER_KEY', ''),
+    ],
+
 ];
