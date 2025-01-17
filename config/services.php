@@ -42,4 +42,9 @@ return [
         'key' => env('OPENWEATHER_KEY', ''),
     ],
 
+    'ipinfo' => [
+        'endpoint' => 'https://ipinfo.io/',
+        'token' => env('IPINFO_TOKEN', ''),
+    ],
+
 ];
