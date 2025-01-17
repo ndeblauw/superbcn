@@ -2,6 +2,8 @@
 
     <x-quote/>
 
+    <x-weather />
+
     <div class="grid grid-cols-2 gap-x-8">
     @foreach($articles as $article)
         <a href="{{route('articles.show',$article->id )}}" class="mt-4">
