@@ -1,9 +1,9 @@
 <x-site-layout title="super BCN blog">
 
-    <x-quote/>
 
     <x-weather />
 
+    <livewire:quote-dynamic />
     <div class="grid grid-cols-2 gap-x-8">
     @foreach($articles as $article)
         <a href="{{route('articles.show',$article->id )}}" class="mt-4">
