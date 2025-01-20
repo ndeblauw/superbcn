@@ -1,5 +1,8 @@
 <?php
 
+use App\Services\IpInfoService;
+use App\Services\IpStackService;
+
 return [
 
     /*
@@ -41,6 +44,12 @@ return [
         'endpoint' => 'https://api.openweathermap.org/data/2.5/weather',
         'key' => env('OPENWEATHER_KEY', ''),
     ],
+
+    'ipservice' => match (env('IP_SERVICE', null)) {
+        'ipstack' => IpStackService::class,
+        'ipinfo' => IpInfoService::class,
+        default => null,
+    },
 
     'ipinfo' => [
         'endpoint' => 'https://ipinfo.io/',
