@@ -1,7 +1,10 @@
 <x-site-layout title="super BCN blog">
 
+    <livewire:counter initvalue="7"/>
 
     <x-weather />
+
+    <livewire:counter />
 
     <livewire:quote-dynamic />
     <div class="grid grid-cols-2 gap-x-8">
