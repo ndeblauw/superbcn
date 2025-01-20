@@ -47,4 +47,9 @@ return [
         'token' => env('IPINFO_TOKEN', ''),
     ],
 
+    'ipstack' => [
+        'endpoint' => 'https://api.ipstack.com/',
+        'key' => env('IPSTACK_KEY', ''),
+    ],
+
 ];

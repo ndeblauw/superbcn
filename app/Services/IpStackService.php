@@ -5,24 +5,23 @@ namespace App\Services;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
-class IpInfoService implements IpServiceInterface
+class IpStackService implements IpServiceInterface
 {
     protected string $endpoint;
-    protected string $api_token;
+    protected string $api_key;
 
     public function __construct()
     {
-        ray('ipinfo service')->green();
-
-        $this->endpoint = config('services.ipinfo.endpoint', '');
-        $this->api_token = config('services.ipinfo.token', '');
+        ray('ipstack service')->green();
+        $this->endpoint = config('services.ipstack.endpoint', '');
+        $this->api_key = config('services.ipstack.key', '');
     }
 
     public function getLatLon(string $ip): array
     {
         try {
             $response = Http::get($this->endpoint.$ip, [
-                'token' => $this->api_token,
+                'access_key' => $this->api_key,
             ]);
 
             if($response->successful()) {
@@ -30,8 +29,8 @@ class IpInfoService implements IpServiceInterface
 
                 $body = json_decode($response->body());
                 $position = [
-                    'lat' => Str::of($body->loc)->before(',')->toString(),
-                    'lon' => Str::of($body->loc)->after(',')->toString(),
+                    'lat' => Str::of($body->latitude)->toString(),
+                    'lon' => Str::of($body->longitude)->toString(),
                 ];
             } else {
                 ray($response)->red();
