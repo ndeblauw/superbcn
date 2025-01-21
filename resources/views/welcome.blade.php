@@ -1,4 +1,4 @@
-<x-site-layout title="super BCN blog">
+<x-site-layout title="super BCN blog" noalpine>
 
     <livewire:counter initvalue="7"/>
 

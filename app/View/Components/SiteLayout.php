@@ -10,10 +10,12 @@ class SiteLayout extends Component
 {
     public $title;
 
+    public $include_alpine;
 
-    public function __construct(?string $title = null)
+    public function __construct(?string $title = null, ?bool $noalpine = false)
     {
         $this->title = ucfirst($title);
+        $this->include_alpine = ! $noalpine;
     }
 
     /**
