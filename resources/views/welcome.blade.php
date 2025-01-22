@@ -6,6 +6,8 @@
     <livewire:counter initvalue="7"/>
 
     <x-weather />
+        <livewire:quote-dynamic />
+
 
     <livewire:counter />
 
