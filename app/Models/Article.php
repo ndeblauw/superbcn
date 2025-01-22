@@ -23,6 +23,16 @@ class Article extends Model implements HasMedia
         'published_at' => 'datetime',
     ];
 
+    // Model events --------
+    protected static function booted(): void
+    {
+        static::creating(function (Article $article) {
+            ray($article)->green();
+            $article['slug'] = $article['slug'] ?? self::generateSlug($article['title']);
+            ray($article)->red();
+        });
+    }
+
     // Model relationships --------
     public function author()
     {
@@ -78,6 +88,18 @@ class Article extends Model implements HasMedia
         }
 
         return $content;
+    }
+
+    public static function generateSlug($title):string
+    {
+        $slug = Str::of($title)->slug()->toString();
+
+        $nr = self::where('slug', $slug)->count();
+        if($nr === 1) {
+            $slug .= '-'.random_int(0,10000);
+        }
+
+        return $slug;
     }
 
     // Media conversions

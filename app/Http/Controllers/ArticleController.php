@@ -16,10 +16,10 @@ class ArticleController extends Controller
 
     }
 
-    public function show(int $id)
+    public function show(string $slug)
     {
-        $article = Article::published()->findOrFail($id);
-        
+        $article = Article::published()->where('slug', $slug)->sole();
+
         $article->author->notify( new InformAuthorOnArticleRead(now(), $article->id));
 
         return view('articles.show')->with('article', $article);

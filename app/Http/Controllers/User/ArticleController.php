@@ -34,15 +34,21 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', 'min:5', 'max:255'],
+            'slug' => ['nullable', 'string', 'min:5', 'max:255', 'unique:articles'],
             'content' => ['required', 'string'],
             'categories' => ['nullable', 'array'],
         ]);
 
         $article = Article::create([
             'title' => $request->title,
+            'slug' => $request->slug,
             'content' => $request->content,
             'author_id' => auth()->user()->id,
         ]);
+
+        // do something if slug is empty
+
+
 
         $article->categories()->sync($request->categories);
 
@@ -83,6 +89,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', 'min:5', 'max:255'],
+            'slug' => ['required', 'string', 'min:5', 'max:255', 'unique:articles'],
             'content' => ['required', 'string'],
             'author_id' => ['required', 'numeric'],
             'categories' => ['nullable', 'array'],
@@ -95,6 +102,7 @@ class ArticleController extends Controller
 
         $article->update([
             'title' => $request->title,
+            'slug' => $request->slug,
             'content' => $request->content,
             'author_id' => $request->author_id,
         ]);

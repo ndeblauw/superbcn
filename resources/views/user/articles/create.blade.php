@@ -4,6 +4,9 @@
         @csrf
 
         <x-form-text name="title" label="Title" placeholder="Please make it catchy" />
+
+        <x-form-text name="slug" label="Slug"/>
+
         <x-form-textarea name="content" :rte="true" label="Your great post" placeholder="Make sure to have more than 1 paragraph"/>
         <x-form-checkboxes name="categories" label="Categories" :options="\App\Models\Category::orderBy('title')->pluck('title', 'id')->toArray()" />
 
