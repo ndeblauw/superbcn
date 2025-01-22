@@ -1,5 +1,8 @@
 <x-site-layout title="super BCN blog" noalpine>
 
+
+    <livewire:article-search />
+
     <livewire:counter initvalue="7"/>
 
     <x-weather />
