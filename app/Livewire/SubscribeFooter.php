@@ -24,8 +24,6 @@ class SubscribeFooter extends Component
 
         $this->email = '';
 
-
-
     }
 
     public function render()

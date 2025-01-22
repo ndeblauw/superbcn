@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 class IpInfoService implements IpServiceInterface
 {
     protected string $endpoint;
+
     protected string $api_token;
 
     public function __construct()
@@ -25,8 +26,8 @@ class IpInfoService implements IpServiceInterface
                 'token' => $this->api_token,
             ]);
 
-            if($response->successful()) {
-                ray($response->body() )->green();
+            if ($response->successful()) {
+                ray($response->body())->green();
 
                 $body = json_decode($response->body());
                 $position = [
@@ -35,7 +36,7 @@ class IpInfoService implements IpServiceInterface
                 ];
             } else {
                 ray($response)->red();
-                ray($response->body() )->red();
+                ray($response->body())->red();
             }
 
         } catch (\Exception $e) {
@@ -44,5 +45,4 @@ class IpInfoService implements IpServiceInterface
 
         return $position;
     }
-
 }

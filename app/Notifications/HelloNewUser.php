@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -34,7 +33,7 @@ class HelloNewUser extends Notification
         return (new MailMessage)
             ->subject('You are amazing to join us!')
             ->from('strawberry@superbcn.com', 'Apple')
-            ->greeting("Hello ".$notifiable->name)
+            ->greeting('Hello '.$notifiable->name)
             ->line('I could write a lot, but just want to say '.$this->cool_sentence)
             ->action('Check out our articles', route('articles.index'))
             ->line('Thank you for using our application!')

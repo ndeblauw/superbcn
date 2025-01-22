@@ -10,7 +10,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        if(auth()->user()->is_admin){
+        if (auth()->user()->is_admin) {
             $articles = Article::paginate(10);
         } else {
             $articles = Article::where('author_id', auth()->user()->id)->paginate(10);
@@ -47,8 +47,6 @@ class ArticleController extends Controller
         ]);
 
         // do something if slug is empty
-
-
 
         $article->categories()->sync($request->categories);
 
@@ -109,7 +107,7 @@ class ArticleController extends Controller
 
         $article->categories()->sync($request->categories);
 
-        if($request->has('image')) {
+        if ($request->has('image')) {
             $article->media->first()?->delete();
             $article->addMediaFromRequest('image')->toMediaCollection('images');
         }

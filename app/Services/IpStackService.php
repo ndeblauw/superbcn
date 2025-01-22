@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 class IpStackService implements IpServiceInterface
 {
     protected string $endpoint;
+
     protected string $api_key;
 
     public function __construct()
@@ -24,8 +25,8 @@ class IpStackService implements IpServiceInterface
                 'access_key' => $this->api_key,
             ]);
 
-            if($response->successful()) {
-                ray($response->body() )->green();
+            if ($response->successful()) {
+                ray($response->body())->green();
 
                 $body = json_decode($response->body());
                 $position = [
@@ -34,7 +35,7 @@ class IpStackService implements IpServiceInterface
                 ];
             } else {
                 ray($response)->red();
-                ray($response->body() )->red();
+                ray($response->body())->red();
             }
 
         } catch (\Exception $e) {
@@ -43,5 +44,4 @@ class IpStackService implements IpServiceInterface
 
         return $position;
     }
-
 }

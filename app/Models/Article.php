@@ -63,7 +63,7 @@ class Article extends Model implements HasMedia
 
     public function authorized(User $user): void
     {
-        if($user->is_admin) {
+        if ($user->is_admin) {
             return;
         }
 
@@ -83,20 +83,20 @@ class Article extends Model implements HasMedia
         ];
 
         $content = $this->content;
-        foreach($replace_list as $from => $to) {
+        foreach ($replace_list as $from => $to) {
             $content = str_replace($from, $to, $content);
         }
 
         return $content;
     }
 
-    public static function generateSlug($title):string
+    public static function generateSlug($title): string
     {
         $slug = Str::of($title)->slug()->toString();
 
         $nr = self::where('slug', $slug)->count();
-        if($nr === 1) {
-            $slug .= '-'.random_int(0,10000);
+        if ($nr === 1) {
+            $slug .= '-'.random_int(0, 10000);
         }
 
         return $slug;

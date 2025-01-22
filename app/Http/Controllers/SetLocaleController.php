@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class SetLocaleController extends Controller
 {
-
     public function __invoke(string $locale)
     {
         if (! in_array($locale, ['en', 'es', 'nl', 'fa'])) {

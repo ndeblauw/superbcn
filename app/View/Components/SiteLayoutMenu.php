@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class SiteLayoutMenu extends Component
 {
     public array $menu = [];
+
     public function __construct()
     {
         $this->menu = [
@@ -18,7 +19,7 @@ class SiteLayoutMenu extends Component
             'Categories' => '',
             'Mail me' => 'mailto:nico@deblauwe.be',
         ];
-   }
+    }
 
     /**
      * Get the view / contents that represent the component.

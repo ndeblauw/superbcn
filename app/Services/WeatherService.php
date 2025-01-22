@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 class WeatherService
 {
     protected string $endpoint;
+
     protected string $api_key;
 
     public function __construct()
@@ -24,8 +25,8 @@ class WeatherService
                 'appid' => $this->api_key,
             ]);
 
-            if($response->successful()) {
-                ray($response->body() )->green();
+            if ($response->successful()) {
+                ray($response->body())->green();
 
                 $body = json_decode($response->body());
                 $weather = [
@@ -35,7 +36,7 @@ class WeatherService
                 ];
             } else {
                 ray($response)->red();
-                ray($response->body() )->red();
+                ray($response->body())->red();
             }
 
         } catch (\Exception $e) {
@@ -44,5 +45,4 @@ class WeatherService
 
         return $weather;
     }
-
 }

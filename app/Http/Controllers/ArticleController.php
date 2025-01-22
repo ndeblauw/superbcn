@@ -20,7 +20,7 @@ class ArticleController extends Controller
     {
         $article = Article::published()->where('slug', $slug)->sole();
 
-        $article->author->notify( new InformAuthorOnArticleRead(now(), $article->id));
+        $article->author->notify(new InformAuthorOnArticleRead(now(), $article->id));
 
         return view('articles.show')->with('article', $article);
     }

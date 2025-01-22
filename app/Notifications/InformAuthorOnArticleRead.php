@@ -15,7 +15,7 @@ class InformAuthorOnArticleRead extends Notification implements ShouldQueue
     public function __construct(
         public \Carbon\Carbon $when,
         public int $article_id,
-    ) { }
+    ) {}
 
     public function via(object $notifiable): array
     {
@@ -34,5 +34,4 @@ class InformAuthorOnArticleRead extends Notification implements ShouldQueue
             ->line('Your article <strong>'.$article->title.'</strong> has been read at'.$this->when->format('Y-m-d H:i').'.')
             ->salutation('You are great!');
     }
-
 }

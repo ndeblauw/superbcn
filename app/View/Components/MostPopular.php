@@ -10,6 +10,7 @@ use Illuminate\View\Component;
 class MostPopular extends Component
 {
     public $articles;
+
     public function __construct()
     {
         $this->articles = Article::published()->take(3)->get();
