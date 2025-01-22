@@ -42,6 +42,8 @@
 
     <x-most-popular/>
 
+    <livewire:subscribe-footer/>
+
     <x-site-layout-footer />
 </div>
 
