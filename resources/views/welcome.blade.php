@@ -1,5 +1,6 @@
 <x-site-layout title="super BCN blog" noalpine>
-    
+
+    {{--
     <livewire:article-search />
 
     <livewire:counter initvalue="7"/>
@@ -10,6 +11,7 @@
     <livewire:counter />
 
     <livewire:quote-dynamic />
+    --}}
     <div class="grid grid-cols-2 gap-x-8">
     @foreach($articles as $article)
         <a href="{{route('articles.show',$article->slug )}}" class="mt-4">

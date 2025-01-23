@@ -49,6 +49,11 @@ class Article extends Model implements HasMedia
         return $this->hasMany(Comment::class, 'article_id');
     }
 
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class,'article_id');
+    }
+
     // Model scopes --------
     public function scopePublished($query)
     {

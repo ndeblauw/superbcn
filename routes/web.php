@@ -8,6 +8,9 @@ Route::get('/', \App\Http\Controllers\WelcomeController::class)->name('welcome')
 
 Route::get('articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles.index');
 Route::get('articles/{slug}', [\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
+Route::get('articles/{slug}/buy/{amount}', [\App\Http\Controllers\PurchaseController::class, 'preparePayment'])->name('articles.buy');
+
+Route::get('purchases/{purchase}/success', [\App\Http\Controllers\PurchaseController::class, 'successfulPayment'])->name('purchase.success');
 
 Route::get('set-locale/{locale}', \App\Http\Controllers\SetLocaleController::class)->name('set-locale');
 
