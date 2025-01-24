@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ArticleController extends Controller
 {
@@ -87,7 +88,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', 'min:5', 'max:255'],
-            'slug' => ['required', 'string', 'min:5', 'max:255', 'unique:articles'],
+            'slug' => ['required', 'string', 'min:5', 'max:255', Rule::unique('articles')->ignore($id)],
             'content' => ['required', 'string'],
             'author_id' => ['required', 'numeric'],
             'categories' => ['nullable', 'array'],
