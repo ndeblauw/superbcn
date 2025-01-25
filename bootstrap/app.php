@@ -16,6 +16,11 @@ return Application::configure(basePath: dirname(__DIR__))
             \App\Http\Middleware\DetectLocale::class,
         ]);
     })
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->appendToGroup('api', [
+            \App\Http\Middleware\EnforceAcceptHeaderIsSet::class,
+        ]);
+    })
     ->withExceptions(function (Exceptions $exceptions) {
         \Spatie\LaravelFlare\Facades\Flare::handles($exceptions);
     })->create();
