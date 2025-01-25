@@ -11,8 +11,9 @@ class ArticleIndexResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'slug' => $this->slug,
-            'details' => route('api.articles.show', $this->slug),
+            'details' => route('api.articles.show', $this->id),
             'title' => $this->title,
         ];
     }

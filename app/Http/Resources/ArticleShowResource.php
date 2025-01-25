@@ -11,6 +11,7 @@ class ArticleShowResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'url' => route('articles.show', $this->slug),
             'title' => $this->title,
             'date' => $this->published_at?->format('Y-m-d'),
