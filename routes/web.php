@@ -21,6 +21,7 @@ Route::name('user.')->middleware(['auth', 'verified'])->group(function () {
     Route::get('user/articles/{id}/publish', \App\Http\Controllers\User\ArticlePublishController::class)->name('articles.publish');
 });
 
+// Todo: fix thnis in correct layout
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
