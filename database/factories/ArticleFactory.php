@@ -25,4 +25,25 @@ class ArticleFactory extends Factory
             'deleted_at' => fake()->optional()->dateTime,
         ];
     }
+
+    public function published(): Factory
+    {
+        return $this->state([
+            'published_at' => fake()->dateTimeBetween('-1 year', 'now'),
+        ]);
+    }
+
+    public function draft(): Factory
+    {
+        return $this->state([
+            'published_at' => null,
+        ]);
+    }
+
+    public function nodeleted(): Factory
+    {
+        return $this->state([
+            'deleted_at' => null,
+        ]);
+    }
 }
