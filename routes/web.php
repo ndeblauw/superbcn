@@ -16,6 +16,9 @@ Route::get('set-locale/{locale}', \App\Http\Controllers\SetLocaleController::cla
 
 // Authenticated routes
 require __DIR__.'/auth.php';
+
+Route::redirect('dashboard', 'user.articles.index')->name('dashboard');
+
 Route::name('user.')->middleware(['auth', 'verified'])->group(function () {
     Route::resource('user/articles', App\Http\Controllers\User\ArticleController::class);
     Route::get('user/articles/{id}/publish', \App\Http\Controllers\User\ArticlePublishController::class)->name('articles.publish');
