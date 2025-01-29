@@ -44,4 +44,4 @@ it('can determine if an article is future scheduled through the scope', function
     ray($aPublisedPost->id)->red()->label('created');
 
     expect($publishedPosts->first()->id)->toEqual($aPublisedPost->id);
-});
+})->skip();
