@@ -27,9 +27,9 @@ class Article extends Model implements HasMedia
     protected static function booted(): void
     {
         static::creating(function (Article $article) {
-            ray($article)->green();
+            //ray($article)->green();
             $article['slug'] = $article['slug'] ?? self::generateSlug($article['title']);
-            ray($article)->red();
+            //ray($article)->red();
         });
     }
 
