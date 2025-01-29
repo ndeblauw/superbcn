@@ -1,7 +1,8 @@
 <x-site-layout title="super BCN blog" noalpine>
 
+    {{--
     <x-weather />
-
+--}}
     {{--
     <livewire:article-search />
 
